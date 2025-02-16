@@ -1,4 +1,3 @@
-const express = require('express');
 const mongoose = require('mongoose');
 
 const userCollection = new mongoose.Schema({
@@ -26,4 +25,5 @@ const employeeCollection = new mongoose.Schema({
 
 const User = mongoose.model('User', userCollection);
 const Employee = mongoose.model('Employee', employeeCollection);
+
 module.exports = {User, Employee};
