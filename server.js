@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { ApolloServer } = require('apollo-server-express');
 
-const gqlSchema = require('./schema');
+const gqlSchema = require('./gqlSchema');
 const resolver = require('./resolver');
 
 // storing sensitive information
@@ -31,10 +31,14 @@ const connectDB = async() => {
 }
 
 // Apollo Server definition
-const ApolloServer = new ApolloServer({
+const apolloServer = new ApolloServer({
     typeDefs: gqlSchema,
     resolvers: resolver
 })
+
+apolloServer.applyMiddleware({ app });
+
+// APP LISTENER
 app.listen(SERVER_PORT, () => {
     console.log(`Server running on port http://localhost:${SERVER_PORT}/graphql`);
     connectDB();

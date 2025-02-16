@@ -1,6 +1,6 @@
-const { graphql } = require('apollo-server-express');
+const { gql } = require('apollo-server-express');
 
-const gqlSchema = graphql `
+const gqlSchema = gql `
     type Login {
         eid: Int
         name: String
