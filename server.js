@@ -10,6 +10,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+app.use(express.json());
 const SERVER_PORT = 3000;
 
 // MongoDB connection
